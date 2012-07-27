@@ -44,5 +44,14 @@ module NearbyFriends
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators do |g|
+      g.scaffold :stylesheets => false
+      g.template_engine :erb
+      g.test_framework :rspec, :fixture => true, :views => false
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+      #g.helper false
+      g.assets false
+    end
   end
 end
