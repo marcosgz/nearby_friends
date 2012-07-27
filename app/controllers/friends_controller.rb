@@ -1,4 +1,3 @@
-class FriendsController < ApplicationController
-  def index
-  end
+class FriendsController < InheritedResources::Base
+  actions :all
 end
