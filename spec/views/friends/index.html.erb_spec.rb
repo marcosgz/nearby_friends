@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe "friends/index" do
   before(:each) do
-    assign(:friends, [
+    assign(:friends, Kaminari.paginate_array([
       stub_model(Friend,
         :name => "Name"
       ),
       stub_model(Friend,
         :name => "Name"
       )
-    ])
+    ]).page(1))
   end
 
   it "renders a list of friends" do

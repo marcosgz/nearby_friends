@@ -1,10 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @friend.name %>
-</p>
-
+<% %w(name lat lon).each do |field| %>
+  <p>
+    <b><%= @friend.class.human_attribute_name(field) %>:</b>
+    <%= @friend.send(field) %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_friend_path(@friend) %> |
 <%= link_to 'Back', friends_path %>
+
+<% content_for(:sidebar) do %>
+  <div class="well sidebar-nav">
+    <h3>Sidebar</h3>
+    <ul class="nav nav-list">
+      <li class="nav-header">Nearby Friends</li>
+      <% @friend.friends_near_me.each do |friend| %>
+        <li>
+          <%= link_to friend.name, friend %>
+          <small>Distance: <%= number_with_precision(friend.distance, :precision => 2) %> miles</small>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
