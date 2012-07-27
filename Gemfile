@@ -2,6 +2,14 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
+
+gem 'inherited_resources'
+gem "twitter-bootstrap-rails"
+gem 'formtastic', " ~> 2.1.1"
+gem 'formtastic-bootstrap'
+gem 'kaminari'
+
+
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
